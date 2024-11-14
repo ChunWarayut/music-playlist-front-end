@@ -11,6 +11,11 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        dark: '#121212',
+        dark2: '#333333',
+      },
+      fontFamily: {
+        sukhumvit: ['var(--font-sukhumvit)'],
       },
     },
   },
