@@ -2,9 +2,12 @@ import Library from "@/components/Library";
 import Navbar from "@/components/Navbar";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
-
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import localFont from "next/font/local";
-
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
 const sukhumvit = localFont({
   src: [
     { path: "./fonts/SukhumvitSet-Thin.ttf", weight: "100", style: "thin" },
@@ -19,13 +22,18 @@ const sukhumvit = localFont({
 });
 
 export default function App({ Component, pageProps }: AppProps) {
+  const queryClient = new QueryClient()
+
   return (
-    <main className={`${sukhumvit.variable} font-sukhumvit`}>
-      <Navbar />
-      <div className={`flex h-[calc(100vh-100px)]`}>
-        <Library />
-        <Component {...pageProps} />
-      </div>
-    </main>
+    <QueryClientProvider client={queryClient}>
+      <main className={`${sukhumvit.variable} font-sukhumvit`}>
+        <Navbar />
+        <div className={`flex h-[calc(100vh-100px)]`}>
+          <Library />
+          <Component {...pageProps} />
+        </div>
+      </main>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   );
 }
