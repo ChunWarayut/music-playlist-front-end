@@ -18,7 +18,7 @@ const MainContent: FC = () => {
                         </button>
                     ))}
                 </div>
-                <div className="space-y-8 overflow-y-scroll h-[calc(100vh-200px)]">
+                <div className="space-y-8 overflow-y-scroll h-[calc(100vh-300px)]">
                     <RecommendationList title="คอลเลกชันของฉัน" />
                     <RecommendationList title="เพลงฮิตวันนี้" />
                     <RecommendationList title="ศิลปินฮิตวันนี้" />
